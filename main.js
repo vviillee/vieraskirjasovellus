@@ -17,6 +17,7 @@ function loadData(){
         ajax.send();
 
 }
+
 /**
  * showData - Näyttää annetun XML-datan valitussa UL-elementissä
  * @param {xmlObject} xmlData 
@@ -24,5 +25,16 @@ function loadData(){
  */
 function showData(xmlData, targetUl){
 
+
+        //määritellään kohde
+        let htmlTarget = document.getElementById(targetUl);
+
+        let viestit = xmlData.getElementsByTagName("viesti");
+
+        for (var i=0; i<viestit.length; i++) {
+                console.log(viestit[i]);
+                console.log(viestit[i].childNodes[0].nodeValue);
+                console.log(viestit[i].attributes.getNamedItem('lähettäjä'));
+        }
 
 }
