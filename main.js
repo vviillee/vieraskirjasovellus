@@ -1,4 +1,6 @@
 
+document.getElementById("hae").addEventListener("click", loadData);
+
 const xmlFile = "data.xml";
 
 /**
