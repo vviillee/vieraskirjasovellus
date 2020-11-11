@@ -32,9 +32,27 @@ function showData(xmlData, targetUl){
         let viestit = xmlData.getElementsByTagName("viesti");
 
         for (var i=0; i<viestit.length; i++) {
-                console.log(viestit[i]);
-                console.log(viestit[i].childNodes[0].nodeValue);
-                console.log(viestit[i].attributes.getNamedItem('lähettäjä'));
-        }
+                var viesti = viestit[i].childNodes[0].nodeValue;
+                var lähettäjä = viestit[i].attributes.getNamedItem('lähettäjä').nodeValue;
+
+                // luodaan li-elementti
+                var li = document.createElement("li");
+                var linkText = document.createTextNode(viesti);
+                var nimi = document.createElement("span")
+                var nimiText = document.createTextNode(lähettäjä);
+                var a = document.createElement("a");
+                var aText = document.createTextNode("poista");
+
+                a.appendChild(aText);
+                nimi.appendChild(nimiText);
+                li.appendChild(linkText);
+                li.appendChild(nimi);
+                li.appendChild(a);
+                
+
+                htmlTarget.appendChild(li)
+       
+        }       
+
 
 }
