@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vieraskirja</title>
 </head>
-<body>
+<body onload="loadData">
     <h1>Viestit</h1>
+
+
+    <form name="lomake" onsubmit="saveData();">
+        <label for ="viesti"></label>
+        <input type="text" name="viesti" id="viesti" placeholder="viesti tähän">
+        <label for="nimi">lähettäjä</label>
+        <input type="text" name="nimi" id="nimi" placeholder="nimi tähän">
+        <input type="button" name="send" id="btnSend" value="Lähetä">
+    </form>
+
     <ul id="viestit">
 
     </ul>

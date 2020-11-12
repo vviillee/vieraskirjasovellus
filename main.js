@@ -1,6 +1,6 @@
 
-document.getElementById("hae").addEventListener("click", loadData);
-
+//document.getElementById("hae").addEventListener("click", loadData);
+document.getElementById("btnSend").addEventListener("click", saveData);
 const xmlFile = "data.xml";
 
 /**
@@ -51,8 +51,18 @@ function showData(xmlData, targetUl){
                 
 
                 htmlTarget.appendChild(li)
-       
-        }       
+          }       
 
+}
 
+function saveData()
+{
+        event.preventDefault();
+        var ajax = new XMLHttpRequest();
+        ajax.onload = function(){
+                console.log(ajax.responseText);
+        }
+        formData = new FormData(document.forms["lomake"]);
+        ajax.open("POST", "save.php", true);
+        ajax.send(formData);
 }
