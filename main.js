@@ -61,6 +61,7 @@ function saveData()
         var ajax = new XMLHttpRequest();
         ajax.onload = function(){
                 console.log(ajax.responseText);
+                loadData();
         }
         formData = new FormData(document.forms["lomake"]);
         ajax.open("POST", "save.php", true);
