@@ -1,6 +1,6 @@
 <?php
 
-if (!lisset($_POST['viesti']) && !lisset($_POST['nimi'])) {
+if (!isset($_POST['viesti']) && !isset($_POST['nimi'])) {
     $response = array(
         'status' => 'error',
         'message' => 'no correct data set!'
