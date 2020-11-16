@@ -1,8 +1,8 @@
 <?php
 
-header("Content-type: application/json; charset-utf-8");
+header("Content-type: application/json; charset=utf-8");
 
-if (!isset($_GET['index']) || !is_int(intaval($_GET['index']))) {
+if (!isset($_GET['index']) || !is_int(intval($_GET['index']))) {
     $response = array(
         'status' => 'error',
         'message' => 'No correct parameters'
