@@ -41,10 +41,14 @@ function showData(xmlData, targetUl){
                 var linkText = document.createTextNode(viesti);
                 var nimi = document.createElement("span")
                 var nimiText = document.createTextNode(lähettäjä);
+
+                // poistamis-linkki
                 var a = document.createElement("a");
                 var aText = document.createTextNode("poista");
-
                 a.appendChild(aText);
+                a.myParam = i; //parametriksi i eli viestin indeksi
+                a.addEventListener('click', del) //liitetään del-funktioon
+
                 nimi.appendChild(nimiText);
                 li.appendChild(linkText);
                 li.appendChild(nimi);
@@ -55,6 +59,18 @@ function showData(xmlData, targetUl){
           }       
 
 }
+
+function del(index){
+        var ajax = new XMLHttpRequest();
+        ajax.onload = function(){
+                console.log(ajax.responseText);
+                loadData();
+        };
+        var getParam = "index=" + index.target.myParam;
+        ajax.open("GET", "del.php?" + getParam, true);
+        ajax.send();
+}
+
 
 function saveData()
 {
