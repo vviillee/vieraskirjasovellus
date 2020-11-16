@@ -10,6 +10,15 @@ if (!isset($_POST['viesti']) && !isset($_POST['nimi'])) {
     die();
 }
 
+
+if (empty($_POST['nimi']) || empty($_POST['viesti'])) {
+    $response = array(
+        'status' => 'error',
+        'message' => 'data was empty'
+    );
+}
+
+
 define("XML_FILE", "data.xml");
 
 $nimi = $_POST['nimi'];

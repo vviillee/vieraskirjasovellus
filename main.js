@@ -28,6 +28,7 @@ function showData(xmlData, targetUl){
 
         //määritellään kohde
         let htmlTarget = document.getElementById(targetUl);
+        htmlTarget.innerHTML=""
 
         let viestit = xmlData.getElementsByTagName("viesti");
 
